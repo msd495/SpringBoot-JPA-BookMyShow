@@ -1,0 +1,45 @@
+package com.techprimers.jpa.springjpahibernateexample.resource;
+
+
+import com.techprimers.jpa.springjpahibernateexample.dao.MovieDao;
+import com.techprimers.jpa.springjpahibernateexample.model.Movie;
+import com.techprimers.jpa.springjpahibernateexample.model.Theater;
+import com.techprimers.jpa.springjpahibernateexample.repository.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@ComponentScan(basePackages ="com.howtodoinjava.demo")
+public class MovieController {
+
+    @Autowired
+    private MovieDao movieDao;
+
+
+
+    // To save movies
+    @PostMapping("/insertMovies")
+    public List<Movie> insertMovieDetails(@RequestBody List<Movie> movie)
+    {
+        for (Movie obj: movie) {
+           movieDao.save(obj);
+        }
+       return movie;
+    }
+
+    @GetMapping("/getDefaultMovies")
+    public List<Movie> getDefaultMovies()
+    {
+       List<Movie> movies=movieDao.getAllMovies();
+       return movies;
+    }
+
+    @GetMapping("/searchMovieByName/{movieName}")
+    public Movie searchMovieByName(@PathVariable("movieName") String movieName)
+    {
+        return movieDao.searchMovie(movieName);
+    }
+}
