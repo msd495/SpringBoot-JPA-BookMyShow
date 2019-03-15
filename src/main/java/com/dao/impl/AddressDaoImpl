@@ -1,0 +1,24 @@
+package com.techprimers.jpa.springjpahibernateexample.dao.impl;
+
+import com.techprimers.jpa.springjpahibernateexample.dao.AddressDao;
+import com.techprimers.jpa.springjpahibernateexample.model.Address;
+import com.techprimers.jpa.springjpahibernateexample.model.Movie;
+import com.techprimers.jpa.springjpahibernateexample.model.Theater;
+import com.techprimers.jpa.springjpahibernateexample.repository.AddressRepository;
+import com.techprimers.jpa.springjpahibernateexample.repository.TheaterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class AddressDaoImpl implements AddressDao {
+
+    @Autowired
+    AddressRepository addressRepository;
+
+
+    @Override
+    public Address save(Address address)
+    {
+        return addressRepository.save(address);
+    }
+}
