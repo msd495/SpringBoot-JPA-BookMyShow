@@ -1,0 +1,22 @@
+package com.techprimers.jpa.springjpahibernateexample.dao.impl;
+
+import com.techprimers.jpa.springjpahibernateexample.dao.TheaterDao;
+import com.techprimers.jpa.springjpahibernateexample.model.Theater;
+import com.techprimers.jpa.springjpahibernateexample.repository.TheaterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class TheaterDaoImpl implements TheaterDao {
+
+    @Autowired
+    TheaterRepository theaterRepository;
+
+    @Override
+    public Theater insertTheaters(Theater theaters) {
+
+        return theaterRepository.save(theaters);
+    }
+}
