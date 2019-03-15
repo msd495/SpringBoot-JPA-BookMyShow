@@ -1,0 +1,99 @@
+package com.techprimers.jpa.springjpahibernateexample.model;
+
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "theater")
+public class Theater {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="theaterId")
+    private Integer theaterId;
+
+    @Column(name="movie_id")
+    private Integer id;
+
+    @Column(name="theaterName")
+    private String theaterName;
+
+   /* @OneToOne(mappedBy = "address")
+    @Cascade(value = org.hibernate.annotations.CascadeType.MERGE)
+    private Address address;
+    public Address getAddress() {
+        return address;
+    }
+    public Theater setAddress(Address address) {
+        this.address = address;
+        return this;
+    }*/
+/*
+    @OneToOne(mappedBy = "theater")
+    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+*/
+    @Column(name="address")
+    private String address;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+
+
+    public Theater() {
+    }
+
+    private String rating;
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getTheaterId() {
+        return theaterId;
+    }
+
+    public Theater setTheaterId(Integer theaterId) {
+        this.theaterId = theaterId;
+        return this;
+    }
+
+
+    public String getRating() {
+        return rating;
+    }
+
+    public Theater setRating(String rating) {
+        this.rating = rating;
+        return this;
+    }
+
+    public String getTheaterName() {
+        return theaterName;
+    }
+
+    public Theater setTheaterName(String theaterName) {
+        this.theaterName = theaterName;
+        return this;
+    }
+  
+
+}
