@@ -1,0 +1,8 @@
+package com.techprimers.jpa.springjpahibernateexample.dao;
+
+import com.techprimers.jpa.springjpahibernateexample.model.Address;
+
+public interface AddressDao {
+
+     Address save(Address address);
+}
