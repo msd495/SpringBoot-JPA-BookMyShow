@@ -1,0 +1,47 @@
+package com.techprimers.jpa.springjpahibernateexample.resource;
+
+import com.techprimers.jpa.springjpahibernateexample.dao.AddressDao;
+import com.techprimers.jpa.springjpahibernateexample.dao.TheaterDao;
+import com.techprimers.jpa.springjpahibernateexample.model.Address;
+import com.techprimers.jpa.springjpahibernateexample.model.Movie;
+import com.techprimers.jpa.springjpahibernateexample.model.Theater;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@ComponentScan(basePackages ="com.howtodoinjava.demo")
+public class TheaterController {
+
+
+    @Autowired
+    private TheaterDao theaterDao;
+
+    @Autowired
+    private AddressDao addressDao;
+
+    // To save movies
+    @PostMapping("/insertTheaters")
+    public List<Theater> insertTheaterDetails(@RequestBody List<Theater> theaters)
+    {
+        for (Theater obj: theaters) {
+            theaterDao.insertTheaters(obj);
+        }
+        return theaters;
+    }
+
+    @PostMapping("/insertAddress")
+    public List<Address> insertAddress(@RequestBody List<Address> addresses)
+    {
+        for(Address address:addresses)
+        {
+            addressDao.save(address);
+        }
+        return addresses;
+    }
+
+}
