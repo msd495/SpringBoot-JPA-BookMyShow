@@ -1,0 +1,101 @@
+package com.techprimers.jpa.springjpahibernateexample.model;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
+@Component
+@Entity
+@Table(name = "address")
+public class Address
+{
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   @Column(name = "addressId")
+   private Integer addressId;
+
+    @Column(name = "city")
+   private String city;
+
+    @Column(name = "state")
+   private String state;
+
+    @Column(name = "pinCode")
+   private String pinCode;
+
+    @Column(name = "streetAddress")
+   private String streetAddress;
+
+    @Column(name = "landMark")
+   private String landMark;
+   // private Integer theaterId;
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public Address setAddressId(Integer addressId) {
+        this.addressId = addressId;
+        return this;
+    }
+  /*  @OneToOne(mappedBy = "address")
+    @Cascade(value = CascadeType.MERGE)
+    private Theater theater;
+    public Theater getTheater() {
+        return theater;
+    }
+    public Address setTheater(Theater theater) {
+        this.theater = theater;
+        return this;
+    }*/
+    /*public Integer getTheaterId() {
+        return theaterId;
+    }
+    public void setTheaterId(Integer theaterId) {
+        this.theaterId = theaterId;
+    }*/
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public String getLandMark() {
+        return landMark;
+    }
+
+    public void setLandMark(String landMark) {
+        this.landMark = landMark;
+    }
+
+
+
+
+}
