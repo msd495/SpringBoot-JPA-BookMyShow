@@ -1,0 +1,17 @@
+package com.techprimers.jpa.springjpahibernateexample.dao;
+
+
+import com.techprimers.jpa.springjpahibernateexample.model.Movie;
+
+import java.util.List;
+
+public interface MovieDao {
+
+    public Movie save(Movie movie);
+
+    public List<Movie> getAllMovies();
+
+    public Movie searchMovie(String movieName);
+
+   // void insertMovies(List<Movie> movieList);
+}
